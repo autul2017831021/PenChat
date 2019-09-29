@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,intial-scale=1,shrink-to-fit=no">
 	<title>Create New Account</title>
-	<?php include 'component/css.php'; ?>
+	<?php include 'components/css.php'; ?>
 </head>
 <body>
 	<div class="signup-container">
