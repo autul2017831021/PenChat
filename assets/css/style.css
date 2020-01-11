@@ -8,6 +8,7 @@
 	--color-silver-2:#54667a;
 	--color-silver-3:#f1f1f4;
 	--color-silver-4:#999;
+	--red-color:#CD5C5C;
 }
 
 html{
@@ -495,6 +496,68 @@ body{
 	color:var(--color-white);
 }
 
+.flash{
+	position: fixed;
+	top:30%;
+	left:30%;
+	width: 40rem;
+	height: auto;
+	background-color: var(--color-white);
+	padding: 1.5rem;
+	box-shadow: 0 0 1rem rgba(0,0,0,0.5);
+	z-index: 9999;
+	border-radius: 3px;
+}
+.success-flash{
+	color:var(--color-green);
+}
+.flash-heading{
+	font-size: 1.2rem;
+	font-weight: 300;
+	text-transform: uppercase;
+}
+.checked{
+	display: inline-block;
+	width: 3rem;
+	height: 3rem;
+	line-height: 3rem;
+	text-align: center;
+	border:1px solid var(--color-green);
+	border-radius: 50%;
+	margin-right: 1rem;
+}
+
+.cross{
+	display: inline-block;
+	width: 3rem;
+	height: 3rem;
+	line-height: 3rem;
+	text-align: center;
+	border:1px solid var(--red-color);
+	border-radius: 50%;
+	margin-right: 1rem;
+}
+
+.flash-body p{
+	margin-top: 5px;
+	margin-left: 4rem;
+	font-size: 1.2rem;
+}
+.remove{
+	position: absolute;
+	top:1rem;
+	right:1rem;
+	font-size:1.8rem;
+	color:silver;
+	font-weight: 500;
+}
+.remove:hover{
+	cursor: pointer;
+}
+.error-flash{
+	color:var(--red-color);
+	top:50%;
+}
 @media (max-width: 765px){
 	.account-left{
 		display: none;
@@ -536,6 +599,10 @@ body{
 	}
 	.form-grid{
 		width:100%;
+	}
+	.flash{
+		width: 80%;
+		left:10%;
 	}
 	
 }

@@ -1,7 +1,7 @@
 <div class="messages">
 				<div class="left-message common-margin">
 					<div class="sender-img-block">
-						<img src="assets/img/pro4.jpg" class="sender-img">
+						<img src="assets/img/autul.jpg" class="sender-img">
 						<span class="online-icon">
 							
 						</span>
@@ -9,7 +9,7 @@
 					<div class="left-msg-area">
 						<div class="user-name-date">
 							<span class="sender-name">
-								Shakil Khan
+								Autul Rahman
 							</span>
 							<span class="date-time">
 								1 day ago
@@ -23,7 +23,7 @@
 
 				<div class="left-message common-margin">
 					<div class="sender-img-block">
-						<img src="assets/img/pro4.jpg" class="sender-img">
+						<img src="assets/img/autul.jpg" class="sender-img">
 						<span class="offline-icon">
 							
 						</span>
@@ -31,7 +31,7 @@
 					<div class="left-msg-area">
 						<div class="user-name-date">
 							<span class="sender-name">
-								Shakil Khan
+								Autul Rahman
 							</span>
 							<span class="date-time">
 								1 day ago
