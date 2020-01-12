@@ -27,6 +27,8 @@
 					$user_image = $row->image;
 
 					if(password_verify($password, $db_password)){
+							$status = 1;
+							$obj->Normal_Query("UPDATE users SET status = ? WHERE id = ?",[$status,$user_id]);
 							$obj->Create_Session("user_name",$user_name);
 							$obj->Create_Session("user_id",$user_id);
 							$obj->Create_Session("user_image",$user_image);
@@ -48,6 +50,18 @@
 	<?php include 'components/css.php'; ?>
 </head>
 <body>
+	<?php if(isset($_SESSION['security'])): ?>
+		<div class="flash error-flash">
+		<span class="remove">&times;</span>
+		<div class="flash-heading">
+			<h3><span class="cross">&#x2715;</span>Error: you have error!</h3>
+		</div>
+		<div class="flash-body">
+			<p><?php echo $_SESSION['security']; ?><p>
+		</div>
+		</div>
+	<?php endif; ?>
+	<?php unset($_SESSION['security']); ?>
 	<div class="signup-container">
 		<div class="account-left">
 			<div class="account-text">

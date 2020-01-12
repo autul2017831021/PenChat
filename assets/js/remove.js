@@ -5,4 +5,10 @@ $(document).ready(function(){
 	setTimeout(function(){
 		$(".flash").fadeOut("slow");
 	},5000);
+
+	$(document).on("change",".change-img",function(){
+		var image_name = $(".change-img").val();
+		var file = image_name.split("\\").pop();
+		$("#change-image-label").html(file);
+	})
 })

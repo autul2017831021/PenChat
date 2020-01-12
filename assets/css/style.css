@@ -558,6 +558,68 @@ body{
 	color:var(--red-color);
 	top:50%;
 }
+.change-img{
+	display: none;
+}
+#change-image-label{
+	width:100%;
+	height: 4rem;
+	line-height: 4rem;
+	border:1px solid var(--color-green);
+	border-radius: 3px;
+	display: block;
+	position: relative;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	overflow: hidden;
+}
+
+#change-image-label::after{
+	position: absolute;
+	content:"Choose image";
+	right: 0;
+	top:0;
+	width:11rem;
+	height:100%;
+	background-color:var(--color-green);
+	color:var(--color-white);
+	text-align: center;
+	font-size: 1.3rem;
+}
+#change-image-label:hover{
+	cursor: pointer;
+}
+
+.files-error{
+	position:fixed;
+	width: 0;
+	height: 5rem;
+	line-height: 5.3rem;
+	text-transform: uppercase;
+	text-align: left;
+	padding: 0 2rem;
+	font-size: 1.3rem;
+	background-color: var(--red-color);
+	color:var(--color-white);
+	bottom:15vh;
+	opacity: 0;
+	transition: all 1s;
+}
+.show-file-error{
+	opacity: 1;
+	width: 100%;
+}
+.files-cross-icon{
+	width: 3rem;
+	height:3rem;
+	line-height:3rem;
+	margin-right:3rem;
+	display: inline-block;
+	text-align: center;
+	border-radius:50%;
+	border:1px solid var(--color-white);
+}
+
 @media (max-width: 765px){
 	.account-left{
 		display: none;
@@ -603,6 +665,9 @@ body{
 	.flash{
 		width: 80%;
 		left:10%;
+	}
+	.files-error{
+		bottom:20vh;
 	}
 	
 }

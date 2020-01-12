@@ -1,7 +1,5 @@
 <?php include "init.php"; ?>
-<?php if(!isset($_SESSION['user_id'])): ?>
-	<?php header("location:login.php"); ?>
-<?php endif; ?>
+<?php include "security.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +34,19 @@
 		</div>
 	<?php endif; ?>
 	<?php unset($_SESSION['name_updated']); ?>
+
+	<?php if(isset($_SESSION['update_image'])): ?>
+		<div class="flash success-flash">
+			<span class="remove">&times;</span>
+			<div class="flash-heading">
+				<h3><span class="checked">&#10004;</span>Success: you have done!</h3>
+			</div>
+			<div class="flash-body">
+				<p><?php echo $_SESSION['update_image']; ?><p>
+			</div>
+		</div>
+	<?php endif; ?>
+	<?php unset($_SESSION['update_image']); ?>
 	
 	<!-- <div class="flash error-flash">
 		<span class="remove">&times;</span>

@@ -1,4 +1,5 @@
 <?php include "init.php"; ?>
+<?php include "security.php" ?>
 <?php 
 	$obj = new base_class;
 	if(isset($_POST['change_name'])){
