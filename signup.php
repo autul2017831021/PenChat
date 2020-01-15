@@ -56,8 +56,9 @@
 
 			move_uploaded_file($img_tmp, "$img_path/$img_name");
 			$status = 0;
+			$clean_status = 0;
 			if($obj->Normal_Query("INSERT INTO users(name,email,password,image,
-				status) VALUES (?,?,?,?,?)",[$full_name,$email,password_hash($password,PASSWORD_DEFAULT),$img_name,$status])){
+				status,clean_status) VALUES (?,?,?,?,?,?)",[$full_name,$email,password_hash($password,PASSWORD_DEFAULT),$img_name,$status,$clean_status])){
 				$obj->Create_Session("account_success","Your account is successfully created");
 				header("location:login.php");
 			}

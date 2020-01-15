@@ -1,5 +1,7 @@
 <?php include "init.php"; ?>
-<?php include "security.php" ?>
+<?php if(!isset($_SESSION['user_id'])): ?>
+	<?php header("location:login.php") ?>
+<?php endif; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +11,17 @@
 	<?php include 'components/css.php'; ?>
 </head>
 <body>
+	<?php if(isset($_SESSION['loader'])): ?>
+		<div class="loader-area">
+			<div class="loader">
+				<div class="loader-item">
+					
+				</div>
+			</div>
+		</div>
+	<?php endif ?>
+	<?php unset($_SESSION['loader']); ?>
+	
 	<?php if(isset($_SESSION['password_updated'])): ?>
 		<div class="flash success-flash">
 			<span class="remove">&times;</span>
@@ -67,5 +80,13 @@
 		</section>
 	</div>
 	<?php include 'components/js.php'; ?>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".loader-area").show();
+			setTimeout(function(){
+				$(".loader-area").hide();
+			},3000)
+		})
+	</script>
 </body>
 </html>
