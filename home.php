@@ -30,11 +30,7 @@
 			      </li>
 
 			      <li class="nav-item">
-			        <a class="nav-link " href="#">NMAP</a>
-			      </li>
-
-			      <li class="nav-item">
-			        <a class="nav-link " href="#">IP SCANNER</a>
+			        <a class="nav-link " href="nmap.php">NMAP</a>
 			      </li>
 
 			      <li class="nav-item">

@@ -5,7 +5,7 @@
 			<li><a href="change_name.php">Change Name <span class="cool-hover"></span></a></li>
 			<li><a href="change_password.php">Change Password <span class="cool-hover"></span></a></li>
 			<li><a href="change_image.php">Change Image<span class="cool-hover"></span></a></li>
-			<li><a href="#">Online Users <span class="online_users"></span> <span class="cool-hover"></span></a></li>
+			<li><a href="#"><span class="online_users"></span> <span class="cool-hover"></span></a></li>
 			<li><a href="javascript:void(0);" class="clean">Clean History<span class="cool-hover"></span></a></li>
 			<li><a href="logout.php">logout <span class="cool-hover"></span></a></li>
 		</ul>

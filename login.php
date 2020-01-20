@@ -26,11 +26,14 @@
 					$user_name = $row->name;
 					$user_image = $row->image;
 					$clean_status = $row->clean_status;
+					$verify = $row->verification;
 
 					if(password_verify($password, $db_password)){
 							$status = 1;
 							$obj->Normal_Query("UPDATE users SET status = ? WHERE id = ?",[$status,$user_id]);
-							if($clean_status == 0){
+							if($verify == 1){
+
+									if($clean_status == 0){
 								if($obj->Normal_Query("SELECT msg_id FROM messages ORDER BY msg_id DESC LIMIT 1")){
 									$last_row = $obj->Single_Result();
 									$last_msg_id = $last_row->msg_id + 1;
@@ -81,8 +84,13 @@
 										}
 							}
 							
+
+							}else{
+								$password_error = "Email is not verified!";
+							}
+							
 					} else{
-						$password_error = "Please enter correct password";
+						$password_error = "Please enter correct password!";
 					}
 				}
 			}
@@ -114,7 +122,7 @@
 		<div class="account-left">
 			<div class="account-text">
 				<h1>Lets Chat</h1>
-				<p>Band is an up-and-coming chat app for groups. You can create all the groups you want to and invite all the people you want to them. The developers recommend this app to people on sports teams, school groups, gaming clans, work groups, and anything like that. Everybody joins in, chats it up, and has a good time</p>
+				<p>Pen-chat is an up-and-coming chat app for groups. You can create all the groups you want to and invite all the people you want to them. The developers recommend this app to people on sports teams, school groups, gaming clans, work groups, and anything like that. Everybody joins in, chats it up, and has a good time</p>
 			</div>
 		</div>
 		<div class="account-right">

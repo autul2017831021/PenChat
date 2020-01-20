@@ -1,6 +1,7 @@
 <?php
 	include "init.php";
 	$obj = new base_class;
+	use PHPMailer\PHPMailer\PHPMailer;
 	if(isset($_POST['signup'])){
 		$full_name = $obj->security($_POST['full_name']);
 		$email     = $obj->security($_POST['email']);
@@ -57,11 +58,28 @@
 			move_uploaded_file($img_tmp, "$img_path/$img_name");
 			$status = 0;
 			$clean_status = 0;
-			if($obj->Normal_Query("INSERT INTO users(name,email,password,image,
-				status,clean_status) VALUES (?,?,?,?,?,?)",[$full_name,$email,password_hash($password,PASSWORD_DEFAULT),$img_name,$status,$clean_status])){
-				$obj->Create_Session("account_success","Your account is successfully created");
-				header("location:login.php");
-			}
+			$token='qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM123456789!@#$%^&*()';
+			$token = str_shuffle($token);
+			$token = substr($token, 0,10);
+			
+			 if($obj->Normal_Query("INSERT INTO users(name,email,password,image,
+			 	status,clean_status,token) VALUES (?,?,?,?,?,?,?)",[$full_name,$email,password_hash($password,PASSWORD_DEFAULT),$img_name,$status,$clean_status,$token])){
+			 	include_once "PHPMailer/PHPMailer.php";
+			 	$mail = new PHPMailer();
+			 	$mail->setFrom('kayesimrul224@gmail.com');
+				$mail->addAddress($email,$name);
+				$mail->Subject = "Please verify email!";
+				$mail->isHTML(true);
+				$mail->Body="
+				Please click on the link below: <br><br>
+				<a href='http://localhost/messenger/confirm.php?email=$email&token=$token'>Click Here</a>
+				";
+				if($mail->send()){
+					$obj->Create_Session("account_success","Please verify your email!");
+			 		header('location:login.php');
+				}
+			 	
+			 }
 		}
 
 	}
